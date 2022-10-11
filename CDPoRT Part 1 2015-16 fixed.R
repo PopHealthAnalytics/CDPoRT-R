@@ -52,23 +52,23 @@ set.seed(1379) #do I have to set seed before each runif function? I guess test b
 #also test that the seed gives the same numbers in SAS
 
 CDPORT$cchs_age_cts <-
-  ifelse(CDPORT$cchs_age_grp=='12-14',floor(runif(1,min=12,max=14+1)), 
-  ifelse(CDPORT$cchs_age_grp=='15-17',floor(runif(1,min=15,max=17+1)),
-  ifelse(CDPORT$cchs_age_grp=='18-19',floor(runif(1,min=18,max=19+1)),
-  ifelse(CDPORT$cchs_age_grp=='20-24',floor(runif(1,min=20,max=24+1)),
-  ifelse(CDPORT$cchs_age_grp=='20-24',floor(runif(1,min=20,max=24+1)),
-  ifelse(CDPORT$cchs_age_grp=='25-29',floor(runif(1,min=25,max=29+1)),
-  ifelse(CDPORT$cchs_age_grp=='30-34',floor(runif(1,min=30,max=34+1)),
-  ifelse(CDPORT$cchs_age_grp=='35-39',floor(runif(1,min=35,max=39+1)),
-  ifelse(CDPORT$cchs_age_grp=='40-44',floor(runif(1,min=40,max=44+1)),
-  ifelse(CDPORT$cchs_age_grp=='45-49',floor(runif(1,min=45,max=49+1)),
-  ifelse(CDPORT$cchs_age_grp=='50-54',floor(runif(1,min=50,max=54+1)),
-  ifelse(CDPORT$cchs_age_grp=='55-59',floor(runif(1,min=55,max=59+1)),
-  ifelse(CDPORT$cchs_age_grp=='60-64',floor(runif(1,min=60,max=64+1)),
-  ifelse(CDPORT$cchs_age_grp=='65-69',floor(runif(1,min=65,max=69+1)),
-  ifelse(CDPORT$cchs_age_grp=='70-74',floor(runif(1,min=70,max=74+1)),
-  ifelse(CDPORT$cchs_age_grp=='75-79',floor(runif(1,min=75,max=79+1)),
-  ifelse(CDPORT$cchs_age_grp=='80-100',floor(runif(1,min=80,max=100+1)), NA))))))))))))))))) 
+  ifelse(CDPORT$cchs_age_grp=='12-14',floor(runif(3,min=12,max=14+1)), 
+  ifelse(CDPORT$cchs_age_grp=='15-17',floor(runif(3,min=15,max=17+1)),
+  ifelse(CDPORT$cchs_age_grp=='18-19',floor(runif(2,min=18,max=19+1)),
+  ifelse(CDPORT$cchs_age_grp=='20-24',floor(runif(5,min=20,max=24+1)),
+  ifelse(CDPORT$cchs_age_grp=='20-24',floor(runif(5,min=20,max=24+1)),
+  ifelse(CDPORT$cchs_age_grp=='25-29',floor(runif(5,min=25,max=29+1)),
+  ifelse(CDPORT$cchs_age_grp=='30-34',floor(runif(5,min=30,max=34+1)),
+  ifelse(CDPORT$cchs_age_grp=='35-39',floor(runif(5,min=35,max=39+1)),
+  ifelse(CDPORT$cchs_age_grp=='40-44',floor(runif(5,min=40,max=44+1)),
+  ifelse(CDPORT$cchs_age_grp=='45-49',floor(runif(5,min=45,max=49+1)),
+  ifelse(CDPORT$cchs_age_grp=='50-54',floor(runif(5,min=50,max=54+1)),
+  ifelse(CDPORT$cchs_age_grp=='55-59',floor(runif(5,min=55,max=59+1)),
+  ifelse(CDPORT$cchs_age_grp=='60-64',floor(runif(5,min=60,max=64+1)),
+  ifelse(CDPORT$cchs_age_grp=='65-69',floor(runif(5,min=65,max=69+1)),
+  ifelse(CDPORT$cchs_age_grp=='70-74',floor(runif(5,min=70,max=74+1)),
+  ifelse(CDPORT$cchs_age_grp=='75-79',floor(runif(5,min=75,max=79+1)),
+  ifelse(CDPORT$cchs_age_grp=='80-100',floor(runif(21,min=80,max=100+1)), NA))))))))))))))))) 
 
 #*Age centred at 45
 CDPORT$age_c <- CDPORT$cchs_age_cts - 45
