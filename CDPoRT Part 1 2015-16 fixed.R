@@ -164,6 +164,14 @@ CDPORT$alc_a <-
 #        }else if((CDPORT$dhh_sex==1 & 21<CDPORT$alwdvwky & CDPORT$alwdvwky <996)|(CDPORT$dhh_sex==2 & 14<CDPORT$alwdvwky & CDPORT$alwdvwky <996)|(5<=CDPORT$alc_020 & CDPORT$alc_020 <=6)){'HeavyDrinker'}
 
 #*SMOKING
+CDPORT$smkdvsty <- 
+  ifelse(CDPORT$smk_005 == 1, 1, # Daily smoker
+  ifelse(CDPORT$smk_005 == 2 & CDPORT$smk_030 == 1, 2, # Occasional smoker (former daily)
+  ifelse(CDPORT$smk_005 == 2 & (CDPORT$smk_030 == 2 | CDPORT$smk_030 >= 6), 3, # Occasional Smoker (never daily)
+  ifelse(CDPORT$smk_005 == 3 & CDPORT$smk_030 == 1, 4, # Former daily
+  ifelse(CDPORT$smk_005 == 3 & CDPORT$smk_030 == 2 & CDPORT$smk_020 == 1, 5, # Former occasional
+  ifelse(CDPORT$smk_005 == 3 & CDPORT$smk_020 == 2, 6, 'Unknown'))))))
+
 CDPORT$smoking <- 
   ifelse(CDPORT$smkdvsty==1,'Daily',
   ifelse(CDPORT$smkdvsty==2,'Occasional smoker',
