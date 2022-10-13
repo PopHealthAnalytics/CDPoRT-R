@@ -91,8 +91,20 @@ female_lp$full_aft_risk = 1-female_lp$full_aft_surv
 
 #Troubleshooting discrepancy in R vs SAS
 #creates a new data frame with the lp variables
-female_lp_test <- keep(female_lp, CASEID, perl("^lp")) #replicate this code in SAS for comparison
+#female_lp_test <- keep(female_lp, CASEID, perl("^lp")) #replicate this code in SAS for comparison
+#View(female_lp_test)
+
+female_lp$minus_agelp = 
+  rowSums(female_lp[ , c('lp_alcohol','lp_smoking','lp_fvc',
+                         'lp_ethnicity','lp_education','lp_marital','lp_asthma','lp_bmi','lp_hbp',
+                         'lp_health','lp_stress'), -4.3449])
+
+female_lp_test <-data.frame(CASEID, minus_agelp, full_lp)
+
 View(female_lp_test)
+
+write.csv(female_lp_test,"C://Users/tselot/Desktop/CDPoRT Dev/female_lp_test.csv", row.names = FALSE)
+
 
 columns_to_remove <- grep("lp_", names(female_lp))
 female_lp<-female_lp[,-columns_to_remove]
